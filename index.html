@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>广东省成人高等教育学士学位英语水平考试（样卷）· 在线练习</title>
+<meta name="description" content="广东省学位英语考试样卷在线练习：完成对话、阅读理解、词汇语法、完形填空、英译汉、写作，自动评分与逐题解析。" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <h1>广东省成人高等教育学士学位英语水平考试（样卷）</h1>
+      <p>在线练习 · 自动评分 · 逐题解析</p>
+    </div>
+    <div class="chips">
+      <span class="chip timer" id="timerChip"><span class="dot" id="timerDot"></span><span id="timerText">120:00</span></span>
+      <span class="chip hide-sm" id="progChip">已答 <b id="progText">0</b>/60</span>
+      <button class="btn ghost icon" id="themeBtn" title="切换深色/浅色" aria-label="切换深色/浅色"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg></button>
+      <button class="btn" id="sheetBtn">答题卡</button>
+      <button class="btn primary" id="submitBtnTop">交卷</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h2 id="heroTitle">Paper One 试卷一 · Paper Two 试卷二</h2>
+    <p id="heroDesc">共 6 部分 60 道客观题 + 英译汉 + 写作，满分 100 分，限时 120 分钟。选定答案即自动保存，交卷后可查看得分与逐题解析。</p>
+    <div class="stats">
+      <div class="stat"><div class="v">60</div><div class="k">客观题</div></div>
+      <div class="stat"><div class="v">120</div><div class="k">分钟</div></div>
+      <div class="stat"><div class="v">100</div><div class="k">满分</div></div>
+      <div class="stat"><div class="v" id="statDone">0</div><div class="k">已作答</div></div>
+    </div>
+    <div class="hero-actions">
+      <button class="btn solid" id="startBtn">开始答题</button>
+      <button class="btn" id="resetBtn">重新练习</button>
+    </div>
+  </div>
+
+  <div class="score-card" id="scoreCard"></div>
+
+  <div class="layout">
+    <main id="main"></main>
+
+    <aside class="side">
+      <div class="panel">
+        <h4>答题进度</h4>
+        <div class="ring-wrap">
+          <div class="ring">
+            <svg width="78" height="78" viewBox="0 0 78 78" aria-hidden="true">
+              <circle cx="39" cy="39" r="33" fill="none" stroke="var(--line-2)" stroke-width="8"></circle>
+              <circle id="ringArc" cx="39" cy="39" r="33" fill="none" stroke="var(--accent)" stroke-width="8"
+                      stroke-linecap="round" stroke-dasharray="207.3" stroke-dashoffset="207.3"></circle>
+            </svg>
+            <div class="val"><b id="ringPct">0%</b><span>完成</span></div>
+          </div>
+          <div class="ring-side">
+            <div>已答 <b id="sideDone">0</b> / 60 题</div>
+            <div>未答 <b id="sideLeft">60</b> 题</div>
+            <div id="sideTimer">计时中…</div>
+          </div>
+        </div>
+        <div class="side-actions">
+          <button class="btn primary" id="submitBtnSide">交卷并评分</button>
+          <button class="btn" id="sheetBtn2">打开答题卡</button>
+          <button class="btn" id="wrongBtn">只看错题</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h4>答题卡</h4>
+        <div class="sheet" id="sheetSide"></div>
+        <div class="legend">
+          <span><i style="background:var(--accent-soft);border-color:var(--accent)"></i>已答</span>
+          <span><i style="background:var(--good-soft);border-color:var(--good)"></i>正确</span>
+          <span><i style="background:var(--bad-soft);border-color:var(--bad)"></i>错误</span>
+          <span><i></i>未答</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h4>试卷结构</h4>
+        <nav class="navlist" id="navlist"></nav>
+      </div>
+    </aside>
+  </div>
+
+  <div class="foot">
+    内容依据《广东省学位英语考试（样卷）》扫描件整理，含官方参考答案与逐题解析。<br>
+    建议先完整计时练习，再对照解析复盘；主观题（英译汉、写作）请自行对照参考译文与范文评分。
+  </div>
+</div>
+
+<div class="drawer" id="drawer">
+  <div class="mask" id="drawerMask"></div>
+  <div class="sheetbox">
+    <div class="drawer-head">
+      <h4>答题卡</h4>
+      <button class="btn ghost icon" id="drawerClose" aria-label="关闭">✕</button>
+    </div>
+    <div class="sheet" id="sheetDrawer"></div>
+    <div class="legend">
+      <span><i style="background:var(--accent-soft);border-color:var(--accent)"></i>已答</span>
+      <span><i style="background:var(--good-soft);border-color:var(--good)"></i>正确</span>
+      <span><i style="background:var(--bad-soft);border-color:var(--bad)"></i>错误</span>
+      <span><i></i>未答</span>
+    </div>
+    <div class="side-actions">
+      <button class="btn primary" id="submitBtnDrawer">交卷并评分</button>
+    </div>
+  </div>
+</div>
+
+<div class="pop" id="pop" hidden></div>
+<div class="toast" id="toast"></div>
+
+<script src="data/exam.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
